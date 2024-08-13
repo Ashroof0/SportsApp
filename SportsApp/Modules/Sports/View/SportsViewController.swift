@@ -7,23 +7,40 @@
 
 import UIKit
 
-class SportsViewController: UIViewController {
+class SportsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    var arrSports = SportViewModel().sports
+    
 
+    @IBOutlet weak var MyCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        MyCollectionView.dataSource = self
+        MyCollectionView.delegate = self
+        let cell = UINib(nibName: "MyCollectionViewCell", bundle: nil)
+        MyCollectionView.register(cell, forCellWithReuseIdentifier: "MyCollectionViewCell")
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return arrSports.count
     }
-    */
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCollectionViewCell", for: indexPath) as! MyCollectionViewCell
+        let sport = arrSports[indexPath.row]
+        cell.SportName.text = sport.title
+    //    cell.MyImage.image = sport.image
+        
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            return CGSize(width: self.view.frame.width * 0.499, height: self.view.frame.height * 0.20)
+        }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+            return 0.1
+        }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+           return 0.1
+       }
 
 }

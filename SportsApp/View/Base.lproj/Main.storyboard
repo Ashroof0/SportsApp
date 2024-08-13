@@ -32,14 +32,36 @@
                     <view key="view" contentMode="scaleToFill" id="JIG-Nk-67a">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oTL-ev-Kb8">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vbi-31-wTR">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Qf3-qk-M96"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Qf3-qk-M96" firstAttribute="bottom" secondItem="oTL-ev-Kb8" secondAttribute="bottom" id="5Eo-qq-jnY"/>
+                            <constraint firstItem="oTL-ev-Kb8" firstAttribute="top" secondItem="JIG-Nk-67a" secondAttribute="top" id="9Vs-yz-u32"/>
+                            <constraint firstItem="Qf3-qk-M96" firstAttribute="trailing" secondItem="oTL-ev-Kb8" secondAttribute="trailing" id="NsH-Yf-lgs"/>
+                            <constraint firstItem="oTL-ev-Kb8" firstAttribute="leading" secondItem="Qf3-qk-M96" secondAttribute="leading" id="RsH-Ih-dX0"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Sports" image="sportscourt.fill" catalog="system" id="fIr-Nn-mt6"/>
+                    <connections>
+                        <outlet property="MyCollectionView" destination="oTL-ev-Kb8" id="nFd-tw-t8A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TTM-Y8-Vzv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="759" y="-407"/>
+            <point key="canvasLocation" x="757.97101449275374" y="-407.14285714285711"/>
         </scene>
         <!--League Details Collection View Controller-->
         <scene sceneID="Ptg-Gh-6io">

@@ -1,0 +1,23 @@
+//
+//  FootballLeagues.swift
+//  SportsApp
+//
+//  Created by Enas Mohamed on 15/08/2024.
+//
+
+
+import Foundation
+struct FootballLeaguesBaseResponse : Codable {
+    let success : Int?
+    let result : [Leagues]?
+
+}
+
+struct Leagues : Codable {
+    let league_league_key : Int?
+    let league_name : String?
+    let country_country_key : Int?
+    let country_name : String?
+    let league_logo : String?
+    let country_logo : String?
+}

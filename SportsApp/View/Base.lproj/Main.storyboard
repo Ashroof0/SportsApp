@@ -33,10 +33,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oTL-ev-Kb8">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oTL-ev-Kb8">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vbi-31-wTR">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AYA-wa-0VS">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -62,6 +62,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TTM-Y8-Vzv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="757.97101449275374" y="-407.14285714285711"/>
+        </scene>
+        <!--Leagues View Controller-->
+        <scene sceneID="eRH-9M-A9u">
+            <objects>
+                <viewController storyboardIdentifier="LeaguesViewController" id="XOE-2w-7es" customClass="LeaguesViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F5U-GQ-w5y">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Bha-J1-tfB">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeagueTableViewCell" id="Sug-hM-A4F" customClass="LeagueTableViewCell" customModule="SportsApp">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="54.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sug-hM-A4F" id="s5G-Z4-XpW">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="54.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgG-tQ-kUR">
+                                                    <rect key="frame" x="16" y="16" width="42" height="22.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="7Op-ba-hdD"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cgG-tQ-kUR" firstAttribute="top" secondItem="s5G-Z4-XpW" secondAttribute="top" constant="16" id="Vfj-5P-m9h"/>
+                                                <constraint firstAttribute="bottom" secondItem="cgG-tQ-kUR" secondAttribute="bottom" constant="16" id="jET-zq-01I"/>
+                                                <constraint firstItem="cgG-tQ-kUR" firstAttribute="leading" secondItem="s5G-Z4-XpW" secondAttribute="leading" constant="16" id="mov-Mw-Ina"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="leagueName" destination="cgG-tQ-kUR" id="BXJ-i8-6nt"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7SO-wA-kwW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Bha-J1-tfB" firstAttribute="leading" secondItem="7SO-wA-kwW" secondAttribute="leading" id="Bsg-yg-aFi"/>
+                            <constraint firstItem="7SO-wA-kwW" firstAttribute="bottom" secondItem="Bha-J1-tfB" secondAttribute="bottom" id="FDl-oO-VbO"/>
+                            <constraint firstItem="Bha-J1-tfB" firstAttribute="top" secondItem="7SO-wA-kwW" secondAttribute="top" id="Lc7-IA-7CF"/>
+                            <constraint firstItem="7SO-wA-kwW" firstAttribute="trailing" secondItem="Bha-J1-tfB" secondAttribute="trailing" id="qng-YW-1lb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Bha-J1-tfB" id="4Bd-OH-0xG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fU4-wx-HFe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-26.086956521739133" y="588.61607142857144"/>
         </scene>
         <!--League Details Collection View Controller-->
         <scene sceneID="Ptg-Gh-6io">
@@ -96,7 +155,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xhq-vB-549" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1647.826086956522" y="-168.08035714285714"/>
+            <point key="canvasLocation" x="1665" y="-407"/>
         </scene>
         <!--Teams View Controller-->
         <scene sceneID="Fpl-d1-cMK">

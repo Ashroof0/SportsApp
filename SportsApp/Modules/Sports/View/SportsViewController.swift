@@ -7,10 +7,10 @@
 
 import UIKit
 
-class SportsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class SportsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     var arrSports = SportViewModel().sports
     
-
+    
     @IBOutlet weak var MyCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +20,7 @@ class SportsViewController: UIViewController, UICollectionViewDataSource, UIColl
         MyCollectionView.register(cell, forCellWithReuseIdentifier: "MyCollectionViewCell")
     }
     
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return arrSports.count
     }
@@ -29,18 +29,37 @@ class SportsViewController: UIViewController, UICollectionViewDataSource, UIColl
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCollectionViewCell", for: indexPath) as! MyCollectionViewCell
         let sport = arrSports[indexPath.row]
         cell.SportName.text = sport.title
-    //    cell.MyImage.image = sport.image
+        cell.MyImage.image = sport.image
         
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: self.view.frame.width * 0.499, height: self.view.frame.height * 0.20)
-        }
+        let width = (collectionView.frame.width - 16) / 2
+        return CGSize(width: width, height: 350)
+    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-            return 0.1
-        }
+        return 16
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-           return 0.1
-       }
-
+        return 16
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        var sport : SportType = .football
+        switch indexPath.row {
+        case 0 : sport = .football
+        case 1 : sport = .basketball
+        case 2 : sport = .cricket
+        case 3 : sport = .tennis
+        default :
+            break
+        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let leagueVc = storyboard.instantiateViewController(withIdentifier: "LeaguesViewController") as! LeaguesViewController
+        leagueVc.sport = sport
+        self.navigationController?.pushViewController(leagueVc, animated: true)
+    }
+    
 }

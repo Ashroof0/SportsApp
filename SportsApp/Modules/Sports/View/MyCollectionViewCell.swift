@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 class MyCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var SportName: UILabel!

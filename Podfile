@@ -6,5 +6,6 @@ target 'SportsApp' do
   use_frameworks!
 
   # Pods for SportsApp
+pod 'SDWebImage', '~> 5.0'
 
 end

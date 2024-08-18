@@ -82,7 +82,7 @@
                 <outlet property="awayTeamlbl" destination="uco-NR-KO2" id="Dom-tx-U3i"/>
                 <outlet property="dataLbl" destination="RMs-d3-OcW" id="0Mi-Ox-9Q0"/>
                 <outlet property="homeTeamLbl" destination="TN6-ow-DCv" id="Ek0-nm-tnY"/>
-                <outlet property="resultLbl" destination="RMs-d3-OcW" id="Vdb-lh-Gvj"/>
+                <outlet property="resultLbl" destination="nMb-O1-gPx" id="5wB-Th-VYp"/>
                 <outlet property="timeLbl" destination="cdl-SV-c7x" id="Zfp-tp-grk"/>
             </connections>
             <point key="canvasLocation" x="199.27536231884059" y="59.933035714285708"/>

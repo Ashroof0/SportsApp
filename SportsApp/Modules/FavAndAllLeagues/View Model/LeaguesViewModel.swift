@@ -6,25 +6,23 @@
 //
 
 import Foundation
+import Alamofire
 class LeagueViewModel {
     var chechFav : Bool = true
     private var leagues: [Leagues] = []
     var onLeaguesFetched: (() -> Void)?
     var onFetchFailed: ((Error) -> Void)?
     let manager = NetworkManager.manager
-    
-    func getLeagues(sport : SportType) {
-        
-        manager.getFootballLeagues(sport: sport){ [weak self] league in
-            if let league = league.result {
-                self?.leagues = league
+    var sport : SportType?
+    func getLeagues() {
+        manager.fetchData(url: url.UrlLeagues(sport: sport!), model: FootballLeaguesBaseResponse.self) { respons, error in
+            if let respons = respons {
+                self.leagues = respons.result
+                self.onLeaguesFetched!()
+            }else {
+                print(error!)
             }
-            self?.onLeaguesFetched!()
-        } faildHandler: { [weak self] error in
-            print(error.localizedDescription)
-            self?.onFetchFailed?(error)
         }
-        
     }
     func checkFav()->Bool{
         return chechFav

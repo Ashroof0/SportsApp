@@ -13,7 +13,6 @@
         <!--Navigation Controller-->
         <scene sceneID="RBX-KS-WxZ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8gt-Xb-x73" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="xE7-n6-c0a" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dwo-1Y-DLo">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -23,6 +22,7 @@
                         <segue destination="lT2-L8-Oy4" kind="relationship" relationship="rootViewController" id="dXj-FT-65w"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8gt-Xb-x73" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1141" y="-105"/>
         </scene>
@@ -117,7 +117,6 @@
                                             <outlet property="leagueName" destination="cgG-tQ-kUR" id="BXJ-i8-6nt"/>
                                             <outlet property="playButton" destination="hbt-SN-0cr" id="2qF-a5-HUA"/>
                                             <outlet property="teamImage" destination="aVG-Cn-FOZ" id="IbC-JL-cp1"/>
-                                            <segue destination="Blr-24-waj" kind="show" identifier="GoToDetails" id="LeV-aJ-Nlj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -135,6 +134,7 @@
                     <tabBarItem key="tabBarItem" title="Favourite" image="heart.fill" catalog="system" id="H2F-ou-LE2"/>
                     <connections>
                         <outlet property="tableView" destination="Bha-J1-tfB" id="4Bd-OH-0xG"/>
+                        <segue destination="Blr-24-waj" kind="show" identifier="GoToDetails" id="Rja-2e-TXB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fU4-wx-HFe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -299,7 +299,6 @@
         <!--My Tab Bar Controller-->
         <scene sceneID="eJc-nZ-O3D">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ufj-u7-FVr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tabBarController id="lT2-L8-Oy4" customClass="MyTabBarController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="lAC-zN-Okp"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fW7-E7-NAX">
@@ -312,6 +311,7 @@
                         <segue destination="XOE-2w-7es" kind="relationship" relationship="viewControllers" id="B0G-op-w2A"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ufj-u7-FVr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-136" y="-105"/>
         </scene>

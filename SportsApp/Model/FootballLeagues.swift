@@ -9,15 +9,16 @@
 import Foundation
 struct FootballLeaguesBaseResponse : Codable {
     let success : Int?
-    let result : [Leagues]?
+    let result : [Leagues]
 
 }
 
-struct Leagues : Codable {
-    let league_league_key : Int?
-    let league_name : String?
-    let country_country_key : Int?
-    let country_name : String?
-    let league_logo : String?
-    let country_logo : String?
+struct Leagues: Codable {
+    let league_key: Int
+    let league_name: String
+    let country_key: Int?
+    let country_name: String?
+    let league_logo: String?
+    let country_logo: String?
+    let league_year: String?
 }

@@ -7,17 +7,26 @@
 
 import UIKit
 
-let reuseIdentifier = "Cell"
-
 class LeagueDetailsViewController: UIViewController , UICollectionViewDelegateFlowLayout,UICollectionViewDelegate , UICollectionViewDataSource {
  
-    
+    var viewModel = LeagueDetailsViewModel()
 
-    var leagueId : Int?
     @IBOutlet weak var LeagueDetails: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        LeagueDetails.delegate = self
+        LeagueDetails.dataSource = self
+        let nib = UINib(nibName: "EventsCollectionViewCell", bundle: nil)
+        LeagueDetails.register(nib, forCellWithReuseIdentifier: "EventsCollectionViewCell")
+        let nib2 = UINib(nibName: "TeamsCollectionViewCell", bundle: nil)
+        LeagueDetails.register(nib2, forCellWithReuseIdentifier: "TeamsCollectionViewCell")
+        
+        viewModel.bindResultToVC = {
+            self.LeagueDetails.reloadData()
+        }
+        viewModel.GetEvents()
+        viewModel.GetLatestResults()
+        
         let compositional = UICollectionViewCompositionalLayout {sectionIndex,enviroment in
                     switch sectionIndex {
                     case 0 :
@@ -30,39 +39,45 @@ class LeagueDetailsViewController: UIViewController , UICollectionViewDelegateFl
                 }
         
         LeagueDetails.setCollectionViewLayout(compositional, animated: true)
+        
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 3
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
-        case 0:
-            //Up coming events
-            return 1
-        case 1:
-            //lateset result
-            return 1
-        case 2:
-            //teams
-            return 1
-        default:
-            return 0
-        }
+                case 0:
+                    return viewModel.upcomingEvents.count
+                case 1:
+                    return viewModel.latestEvents.count
+                case 2:
+                    return viewModel.teams.count
+                default:
+                    return 0
+                }
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell : UICollectionViewCell?
         if indexPath.section == 0{
-             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventsCollectionViewCell", for: indexPath) as! EventsCollectionViewCell
+            cell.SetUpCell(eventModel: viewModel.upcomingEvents[indexPath.row])
+            return cell
         }
         else if indexPath.section == 1 {
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventsCollectionViewCell", for: indexPath) as! EventsCollectionViewCell
+           cell.SetUpCell(eventModel: viewModel.latestEvents[indexPath.row])
+            return cell
         }
         else{
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell3", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeamsCollectionViewCell", for: indexPath) as! TeamsCollectionViewCell
+            cell.CellSetUp(team: viewModel.teams[indexPath.row])
+            return cell
         }
-   
-        return cell!
+
     }
         
     func drawUpComingSection() -> NSCollectionLayoutSection{

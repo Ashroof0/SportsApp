@@ -3,7 +3,7 @@
 //  SportsApp
 //
 //  Created by Enas Mohamed on 17/08/2024.
-//
+//indecitor in any screen which wait for response - coreData and fav button  -  constarian for 3 screen - if no internet connection in fav and sports screen show alert no internet - testing - if no data above display photo - adjust assest
 
 import UIKit
 import SDWebImage
@@ -30,8 +30,8 @@ class EventsCollectionViewCell: UICollectionViewCell {
         dataLbl.text = eventModel.eventDate
         timeLbl.text = eventModel.eventTime
         let placeholderImage = UIImage(systemName: "heart.fill")
-        TeamHomeImage.sd_setImage(with: URL(string: eventModel.homeTeamLogo!),placeholderImage: placeholderImage, options: .highPriority, completed: nil )
-        TeamAwayImage.sd_setImage(with: URL(string: eventModel.awayTeamLogo!),placeholderImage: placeholderImage, options: .highPriority, completed: nil )
+        TeamHomeImage.sd_setImage(with: URL(string: eventModel.homeTeamLogo ?? ""),placeholderImage: placeholderImage, options: .highPriority, completed: nil )
+        TeamAwayImage.sd_setImage(with: URL(string: eventModel.awayTeamLogo ?? ""),placeholderImage: placeholderImage, options: .highPriority, completed: nil )
         if eventModel.eventFinalResult == "-" {
             resultLbl.text = ""
         } else{

@@ -30,12 +30,13 @@ class NetworkManager{
             }
         }
     
-enum SportType : String {
-case football = "football"
-    case basketball = "basketball"
-    case cricket = "cricket"
-    case tennis = "tennis"
+
 }
+enum SportType : String {
+case football = "/football"
+    case basketball = "/basketball"
+    case cricket = "/cricket"
+    case tennis = "/tennis"
 }
 /*
  func getFootballLeagues(sport : SportType, successHandler: @escaping (FootballLeaguesBaseResponse) -> Void, faildHandler: @escaping (Error) -> Void) {

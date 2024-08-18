@@ -10,6 +10,7 @@
 		3103CF172C70F3160065D834 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103CF152C70F3160065D834 /* Country.swift */; };
 		3103CF182C70F3160065D834 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3103CF162C70F3160065D834 /* Results.swift */; };
 		3112FBD02C71296F0005D938 /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3112FBCF2C71296F0005D938 /* League.swift */; };
+		311946102C724F8700E5ADC3 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3119460F2C724F8700E5ADC3 /* URL.swift */; };
 		311D75C22C70EA970044ADCE /* alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D75C12C70EA970044ADCE /* alert.swift */; };
 		311D75C42C70EBF80044ADCE /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D75C32C70EBF80044ADCE /* EventModel.swift */; };
 		311D75C62C70EC230044ADCE /* TeamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D75C52C70EC230044ADCE /* TeamModel.swift */; };
@@ -49,6 +50,7 @@
 		3103CF152C70F3160065D834 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		3103CF162C70F3160065D834 /* Results.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		3112FBCF2C71296F0005D938 /* League.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = League.swift; sourceTree = "<group>"; };
+		3119460F2C724F8700E5ADC3 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		311D75C12C70EA970044ADCE /* alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alert.swift; sourceTree = "<group>"; };
 		311D75C32C70EBF80044ADCE /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		311D75C52C70EC230044ADCE /* TeamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamModel.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				31D112D52C6AC0CE0004BA1D /* NetworkManager.swift */,
+				3119460F2C724F8700E5ADC3 /* URL.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				31D112E32C6AC9BB0004BA1D /* TeamsViewController.swift in Sources */,
 				31EB10DC2C6D5370007D0B32 /* FootballLeagues.swift in Sources */,
 				319D2DE12C6D577E00DF8B42 /* LeaguesViewModel.swift in Sources */,
+				311946102C724F8700E5ADC3 /* URL.swift in Sources */,
 				31EB10DF2C6D54DB007D0B32 /* Conflig.swift in Sources */,
 				31BB05112C713E2800BBDDBC /* LeagueDetailsViewController.swift in Sources */,
 				311D75C42C70EBF80044ADCE /* EventModel.swift in Sources */,

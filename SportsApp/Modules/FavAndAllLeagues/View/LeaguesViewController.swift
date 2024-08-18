@@ -9,7 +9,6 @@ import UIKit
 import SDWebImage
 class LeaguesViewController: UIViewController {
     var viewModel = LeagueViewModel()
-    var sport : SportType = .football
     @IBOutlet weak var tableView: UITableView!
     var leagueId: Int?
     
@@ -34,13 +33,13 @@ class LeaguesViewController: UIViewController {
             }
             
         }
-        viewModel.getLeagues(sport: sport)
+        viewModel.getLeagues()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
           if segue.identifier == "GoToDetails" {
               if let destinationVC = segue.destination as? LeagueDetailsViewController {
-                  destinationVC.leagueId = leagueId
-
+                  destinationVC.viewModel.league = viewModel.league(at: sender as! Int)
+                  destinationVC.viewModel.sport = viewModel.sport
               }
           }
       }
@@ -51,10 +50,7 @@ extension LeaguesViewController : UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let league = viewModel.league(at: indexPath.row){
-            self.leagueId = league.league_league_key
-            performSegue(withIdentifier: "GoToDetails", sender: self)
-        }
+        self.performSegue(withIdentifier: "GoToDetails", sender: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -57,28 +57,3 @@ enum SportType: String {
         return self.rawValue
     }
 }
-
-/*
- func getFootballLeagues(sport : SportType, successHandler: @escaping (FootballLeaguesBaseResponse) -> Void, faildHandler: @escaping (Error) -> Void) {
-      let url = "\(Config.footballBaseURL)\(sport.rawValue)?met=Leagues&APIkey=\(Config.apiKey)"
-
-          AF.request(url, method: .get).responseDecodable(of: FootballLeaguesBaseResponse.self) { response in
-              switch response.result {
-              case .success(let leaguesResponse):
-                  successHandler(leaguesResponse)
-              case .failure(let error):
-                  faildHandler(error)
-              }
-          }
-
-  }
- 
- AF.request(url, method: .get).responseDecodable(of: T.self) { response in
-     switch response.result {
-     case .success(let dataResponse):
-         successHandler(dataResponse)
-     case .failure(let error):
-         faildHandler(error)
-     }
- }
- */

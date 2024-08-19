@@ -16,6 +16,7 @@ class LeagueDetailsViewModel {
     var latestEvents: [EventModel] = []
     var teams: [TeamModel] = []
     var bindResultToVC: (()->()) = {}
+    var notFoundData: (()->()) = {}
     var noData: (()->()) = {}
     var helper : NetworkManager?
     init() {
@@ -31,8 +32,8 @@ class LeagueDetailsViewModel {
                 }
 
             } else {
-                // display photo if ni data come from all section 
-                print(error?.localizedDescription)
+                // display photo if ni data come from all section
+               self.notFoundData()
             }
         })
         
@@ -46,7 +47,8 @@ class LeagueDetailsViewModel {
                     self.bindResultToVC()
                 }
             } else {
-                print(error?.localizedDescription)
+                self.notFoundData()
+
             }
         })
         

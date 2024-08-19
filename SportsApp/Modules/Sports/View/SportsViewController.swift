@@ -6,18 +6,34 @@
 //
 
 import UIKit
-
+import Reachability
 class SportsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     var arrSports = SportViewModel().sports
+    let reachability = try! Reachability()
     
     
     @IBOutlet weak var MyCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        reachability.whenUnreachable = { _ in
+            self.displayAlert()
+            print("OFFLINE")
+        }
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
+
         MyCollectionView.dataSource = self
         MyCollectionView.delegate = self
         let cell = UINib(nibName: "MyCollectionViewCell", bundle: nil)
         MyCollectionView.register(cell, forCellWithReuseIdentifier: "MyCollectionViewCell")
+    }
+    func displayAlert(){
+        let alert : UIAlertController = UIAlertController(title: "Error", message: "No internet connection", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+      self.present(alert, animated: true, completion: nil)
     }
     
     
@@ -46,21 +62,25 @@ class SportsViewController: UIViewController, UICollectionViewDataSource, UIColl
         return 16
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        var sport : SportType = .football
-        switch indexPath.row {
-        case 0 : sport = .football
-        case 1 : sport = .basketball
-        case 2 : sport = .cricket
-        case 3 : sport = .tennis
-        default :
-            break
+        if (reachability.connection == .unavailable){
+            displayAlert()
+        } else {
+            var sport : SportType = .football
+            switch indexPath.row {
+            case 0 : sport = .football
+            case 1 : sport = .basketball
+            case 2 : sport = .cricket
+            case 3 : sport = .tennis
+            default :
+                break
+            }
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let leagueVc = storyboard.instantiateViewController(withIdentifier: "LeaguesViewController") as! LeaguesViewController
+            leagueVc.viewModel.sport = sport
+            leagueVc.viewModel.checkFav = false
+            self.navigationController?.pushViewController(leagueVc, animated: true)
         }
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let leagueVc = storyboard.instantiateViewController(withIdentifier: "LeaguesViewController") as! LeaguesViewController
-        leagueVc.viewModel.sport = sport
-        leagueVc.viewModel.checkFav = false
-        self.navigationController?.pushViewController(leagueVc, animated: true)
+      
     }
     
 }

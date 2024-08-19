@@ -8,9 +8,10 @@
 import UIKit
 import SDWebImage
 import CoreData
-
+import Reachability
 class LeaguesViewController: UIViewController {
     var viewModel = LeagueViewModel()
+    let reachability = try! Reachability()
     @IBOutlet weak var tableView: UITableView!
     var leagueId: Int?
     var isFavourite: Bool?
@@ -19,8 +20,24 @@ class LeaguesViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        reachability.whenUnreachable = { _ in
+            self.displayAlert()
+            print("OFFLINE")
+        }
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
+        
       
     }
+    func displayAlert(){
+        let alert : UIAlertController = UIAlertController(title: "Error", message: "No internet connection", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+      self.present(alert, animated: true, completion: nil)
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -57,7 +74,12 @@ extension LeaguesViewController : UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "GoToDetails", sender: indexPath.row)
+        if (reachability.connection == .unavailable){
+            displayAlert()
+        }else{
+            self.performSegue(withIdentifier: "GoToDetails", sender: indexPath.row)
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

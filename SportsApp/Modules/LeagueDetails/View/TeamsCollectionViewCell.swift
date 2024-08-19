@@ -14,6 +14,7 @@ class TeamsCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = 20
+        teamImageView.layer.cornerRadius = teamImageView.layer.bounds.width / 2
     }
     func CellSetUp(team : TeamModel)  {
         teamLbl.text = team.teamName

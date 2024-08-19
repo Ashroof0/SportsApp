@@ -43,6 +43,7 @@ class TeamDetailsVC: UIViewController, UITableViewDelegate,UITableViewDataSource
             self.indicator.stopAnimating()
             self.indicator.removeFromSuperview()
             self.noDataImage.isHidden = false
+            self.playersTableView.isHidden = true
         }
     }
     private func configTable(){

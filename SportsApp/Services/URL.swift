@@ -44,24 +44,25 @@ struct url {
         
         return arrofTeams
     }
-    enum DateRange: String {
-        case prevYear
-        case nextYear
-        
-        var get: String {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd"
-            let currentDate = Date()
-            
-            switch self {
-            case .prevYear:
-                let pastYear = Calendar.current.date(byAdding: .year, value: -1, to: currentDate)!
-                let prevDay = Calendar.current.date(byAdding: .day, value: -1, to: currentDate)!
-                return "&from=\(formatter.string(from: pastYear))&to=\(formatter.string(from: prevDay))"
-            case .nextYear:
-                let comingYear = Calendar.current.date(byAdding: .year, value: 1, to: currentDate)!
-                return "&from=\(formatter.string(from: currentDate))&to=\(formatter.string(from: comingYear))"
-            }
-        }
+   
 }
+public enum DateRange: String {
+    case prevYear
+    case nextYear
+    
+    var get: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let currentDate = Date()
+        
+        switch self {
+        case .prevYear:
+            let pastYear = Calendar.current.date(byAdding: .year, value: -1, to: currentDate)!
+            let prevDay = Calendar.current.date(byAdding: .day, value: -1, to: currentDate)!
+            return "&from=\(formatter.string(from: pastYear))&to=\(formatter.string(from: prevDay))"
+        case .nextYear:
+            let comingYear = Calendar.current.date(byAdding: .year, value: 1, to: currentDate)!
+            return "&from=\(formatter.string(from: currentDate))&to=\(formatter.string(from: comingYear))"
+        }
+    }
 }

@@ -19,10 +19,7 @@ class LeagueDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        viewModel.notFoundData = {
-            self.notFoundImage.isHidden = false
-            self.LeagueDetails.isHidden = true
-        }
+      
     }
     
     
@@ -32,6 +29,10 @@ class LeagueDetailsViewController: UIViewController {
         
         viewModel.bindResultToVC = {
             self.LeagueDetails.reloadData()
+        }
+        viewModel.notFoundData = {
+            self.notFoundImage.isHidden = false
+            self.LeagueDetails.isHidden = true
         }
         viewModel.GetEvents()
         viewModel.GetLatestResults()

@@ -14,6 +14,7 @@
 		311D75C22C70EA970044ADCE /* alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D75C12C70EA970044ADCE /* alert.swift */; };
 		311D75C42C70EBF80044ADCE /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D75C32C70EBF80044ADCE /* EventModel.swift */; };
 		311D75C62C70EC230044ADCE /* TeamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D75C52C70EC230044ADCE /* TeamModel.swift */; };
+		3134500B2C72950B003A60F3 /* Favourite.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 313450092C72950B003A60F3 /* Favourite.xcdatamodeld */; };
 		316A03D72C6C11E300ED4141 /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A03D62C6C11E300ED4141 /* Sport.swift */; };
 		316A03DA2C6C13D700ED4141 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A03D82C6C13D700ED4141 /* MyCollectionViewCell.swift */; };
 		316A03DB2C6C13D700ED4141 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 316A03D92C6C13D700ED4141 /* MyCollectionViewCell.xib */; };
@@ -54,6 +55,7 @@
 		311D75C12C70EA970044ADCE /* alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alert.swift; sourceTree = "<group>"; };
 		311D75C32C70EBF80044ADCE /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		311D75C52C70EC230044ADCE /* TeamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamModel.swift; sourceTree = "<group>"; };
+		3134500A2C72950B003A60F3 /* Favourite.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Favourite.xcdatamodel; sourceTree = "<group>"; };
 		316A03D62C6C11E300ED4141 /* Sport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sport.swift; sourceTree = "<group>"; };
 		316A03D82C6C13D700ED4141 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		316A03D92C6C13D700ED4141 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				31D112B82C6AB80D0004BA1D /* Assets.xcassets */,
 				31D112BD2C6AB80D0004BA1D /* Info.plist */,
 				31D112B52C6AB80A0004BA1D /* SportsApp.xcdatamodeld */,
+				313450092C72950B003A60F3 /* Favourite.xcdatamodeld */,
 			);
 			path = SportsApp;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				311D75C22C70EA970044ADCE /* alert.swift in Sources */,
 				31BB051A2C7160B200BBDDBC /* TeamsCollectionViewCell.swift in Sources */,
 				31D112CD2C6ABC490004BA1D /* SportsViewModel.swift in Sources */,
+				3134500B2C72950B003A60F3 /* Favourite.xcdatamodeld in Sources */,
 				311D75C62C70EC230044ADCE /* TeamModel.swift in Sources */,
 				3103CF172C70F3160065D834 /* Country.swift in Sources */,
 				31D112E12C6AC9590004BA1D /* TeamsViewModel.swift in Sources */,
@@ -731,6 +735,16 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
+		313450092C72950B003A60F3 /* Favourite.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3134500A2C72950B003A60F3 /* Favourite.xcdatamodel */,
+			);
+			currentVersion = 3134500A2C72950B003A60F3 /* Favourite.xcdatamodel */;
+			path = Favourite.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		31D112B52C6AB80A0004BA1D /* SportsApp.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

@@ -32,12 +32,32 @@ class NetworkManager{
     
 
 }
-enum SportType : String {
-case football = "/football"
+enum SportType: String {
+    case football = "/football"
     case basketball = "/basketball"
     case cricket = "/cricket"
     case tennis = "/tennis"
+    
+    init?(from rawValue: String) {
+        switch rawValue {
+        case "/football":
+            self = .football
+        case "/basketball":
+            self = .basketball
+        case "/cricket":
+            self = .cricket
+        case "/tennis":
+            self = .tennis
+        default:
+            return nil
+        }
+    }
+    
+    var stringValue: String {
+        return self.rawValue
+    }
 }
+
 /*
  func getFootballLeagues(sport : SportType, successHandler: @escaping (FootballLeaguesBaseResponse) -> Void, faildHandler: @escaping (Error) -> Void) {
       let url = "\(Config.footballBaseURL)\(sport.rawValue)?met=Leagues&APIkey=\(Config.apiKey)"

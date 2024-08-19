@@ -16,7 +16,7 @@ struct url {
     static func UrlLeagues (sport : SportType) -> URL? {
         return URL(string: baseUrl + sport.rawValue + leagues + apiKey)
     }
-    //https://apiv2.allsportsapi.com/football?met=Fixtures&leagueId=[leagueId]&from=[CurrentDate]&to=[CurrentDate + OneYear]&APIkey=[YourKey]
+    
     static func UrlUpComingEvents(sport : SportType , leagueId : Int , range: DateRange) -> URL? {
         return URL(string: baseUrl + sport.rawValue + leagueDetails + "\(leagueId)" + range.get + apiKey)
     }

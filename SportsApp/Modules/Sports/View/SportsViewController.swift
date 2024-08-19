@@ -59,7 +59,7 @@ class SportsViewController: UIViewController, UICollectionViewDataSource, UIColl
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let leagueVc = storyboard.instantiateViewController(withIdentifier: "LeaguesViewController") as! LeaguesViewController
         leagueVc.viewModel.sport = sport
-        leagueVc.viewModel.chechFav = false
+        leagueVc.viewModel.checkFav = false
         self.navigationController?.pushViewController(leagueVc, animated: true)
     }
     

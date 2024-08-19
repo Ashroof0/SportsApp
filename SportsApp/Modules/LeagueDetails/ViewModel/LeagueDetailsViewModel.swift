@@ -23,7 +23,7 @@ class LeagueDetailsViewModel {
         //init for core data
     }
     func GetEvents()  {
-        helper?.fetchData(url: url.UrlUpComingEvents(sport: sport!, leagueId: league.league_key, range: .nextYear), model: EventModelApiResponse.self, completion: { response, error in
+        helper?.fetchData(url: url.UrlUpComingEvents(sport: sport ?? .football, leagueId: league.league_key, range: .nextYear), model: EventModelApiResponse.self, completion: { response, error in
             if let response = response {
                 self.upcomingEvents = response.result
                 DispatchQueue.main.async {
@@ -38,7 +38,7 @@ class LeagueDetailsViewModel {
         
     }
     func GetLatestResults()  {
-        helper?.fetchData(url: url.UrlUpComingEvents(sport: sport!, leagueId: league.league_key, range: .prevYear), model: EventModelApiResponse.self, completion: { response, error in
+        helper?.fetchData(url: url.UrlUpComingEvents(sport: sport ?? .football, leagueId: league.league_key, range: .prevYear), model: EventModelApiResponse.self, completion: { response, error in
             if let response = response {
                 self.latestEvents = response.result
                 self.GetTeams()

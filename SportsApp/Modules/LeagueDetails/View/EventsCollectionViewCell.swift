@@ -23,8 +23,8 @@ class EventsCollectionViewCell: UICollectionViewCell {
         self.layer.cornerRadius = 20
         
     }
-    func SetUpCell(eventModel : EventModel)  {
-        
+    
+    func configure(eventModel : EventModel)  {
         homeTeamLbl.text = eventModel.eventHomeTeam
         awayTeamlbl.text = eventModel.eventAwayTeam
         dataLbl.text = eventModel.eventDate

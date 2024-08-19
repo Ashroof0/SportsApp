@@ -85,7 +85,7 @@
                 <outlet property="resultLbl" destination="nMb-O1-gPx" id="5wB-Th-VYp"/>
                 <outlet property="timeLbl" destination="cdl-SV-c7x" id="Zfp-tp-grk"/>
             </connections>
-            <point key="canvasLocation" x="199.27536231884059" y="59.933035714285708"/>
+            <point key="canvasLocation" x="122" y="59"/>
         </collectionViewCell>
     </objects>
 </document>

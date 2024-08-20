@@ -18,7 +18,7 @@ class TeamsCollectionViewCell: UICollectionViewCell {
     }
     func CellSetUp(team : TeamModel)  {
         teamLbl.text = team.teamName
-        let placeholderImage = UIImage(systemName: "heart.fill")
+        let placeholderImage = UIImage(named: "empty")
         teamImageView.sd_setImage(with: URL(string: team.teamLogo ?? ""),placeholderImage: placeholderImage, options: .highPriority, completed: nil )
     }
 }

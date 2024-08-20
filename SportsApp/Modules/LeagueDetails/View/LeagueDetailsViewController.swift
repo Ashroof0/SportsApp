@@ -15,11 +15,12 @@ class LeagueDetailsViewController: UIViewController {
     
     @IBOutlet weak var notFoundImage: UIImageView!
     @IBOutlet weak var LeagueDetails: UICollectionView!
+    let indicator = UIActivityIndicatorView(style: .large)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-      
+        setupIndicator()
     }
     
     
@@ -29,10 +30,14 @@ class LeagueDetailsViewController: UIViewController {
         
         viewModel.bindResultToVC = {
             self.LeagueDetails.reloadData()
+            self.indicator.stopAnimating()
+            self.indicator.removeFromSuperview()
         }
         viewModel.notFoundData = {
             self.notFoundImage.isHidden = false
             self.LeagueDetails.isHidden = true
+            self.indicator.stopAnimating()
+            self.indicator.removeFromSuperview()
         }
         viewModel.GetEvents()
         viewModel.GetLatestResults()
@@ -49,6 +54,11 @@ class LeagueDetailsViewController: UIViewController {
         }
         
         LeagueDetails.setCollectionViewLayout(compositional, animated: true)
+    }
+    private func setupIndicator(){
+        indicator.center = view.center
+        view.addSubview(indicator)
+        indicator.startAnimating()
     }
     
     private func configureNavigation() {
@@ -89,7 +99,7 @@ class LeagueDetailsViewController: UIViewController {
         }
     }
     
-    private func addFavoriteLeague(league: Leagues) {
+     public func addFavoriteLeague(league: Leagues) {
         let favoriteLeague = FavoriteLeague(context: context)
         favoriteLeague.league_key = Int64(Int(league.league_key))
         favoriteLeague.league_name = league.league_name
@@ -103,7 +113,7 @@ class LeagueDetailsViewController: UIViewController {
         }
     }
     
-    private func removeFavoriteLeague(leagueKey: Int) {
+    public func removeFavoriteLeague(leagueKey: Int) {
         let fetchRequest: NSFetchRequest<FavoriteLeague> = FavoriteLeague.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "league_key == %d", leagueKey)
         
@@ -118,7 +128,7 @@ class LeagueDetailsViewController: UIViewController {
         }
     }
     
-    private func fetchFavoriteLeagues() -> [FavoriteLeague] {
+    public func fetchFavoriteLeagues() -> [FavoriteLeague] {
         let fetchRequest: NSFetchRequest<FavoriteLeague> = FavoriteLeague.fetchRequest()
         
         do {

@@ -21,7 +21,17 @@ class LeagueTableViewCell: UITableViewCell {
 
         // Initialization code
     }
-
+    @IBAction func PlayButtonAction(_ sender: UIButton) {
+        DispatchQueue.main.async{
+            self.openYouTube()
+        }
+    }
+    func openYouTube() {
+            var str = leagueName.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            str = str.replacingOccurrences(of: " ", with: "")
+            print("\(str)")
+            UIApplication.shared.open(URL(string: ("https://www.youtube.com/@\(str)"))!, options: [:], completionHandler: nil)
+        }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

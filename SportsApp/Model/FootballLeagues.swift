@@ -21,4 +21,6 @@ struct Leagues: Codable {
     let league_logo: String?
     let country_logo: String?
     let league_year: String?
-}
+ 
+    }
+

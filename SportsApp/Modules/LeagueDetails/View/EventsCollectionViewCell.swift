@@ -29,7 +29,7 @@ class EventsCollectionViewCell: UICollectionViewCell {
         awayTeamlbl.text = eventModel.eventAwayTeam
         dataLbl.text = eventModel.eventDate
         timeLbl.text = eventModel.eventTime
-        let placeholderImage = UIImage(systemName: "heart.fill")
+        let placeholderImage = UIImage(named: "empty2")
         TeamHomeImage.sd_setImage(with: URL(string: eventModel.homeTeamLogo ?? ""),placeholderImage: placeholderImage, options: .highPriority, completed: nil )
         TeamAwayImage.sd_setImage(with: URL(string: eventModel.awayTeamLogo ?? ""),placeholderImage: placeholderImage, options: .highPriority, completed: nil )
         if eventModel.eventFinalResult == "-" {

@@ -98,6 +98,9 @@
                                                     <rect key="frame" x="337" y="65" width="38.5" height="22"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="play.fill" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="PlayButtonAction:" destination="Sug-hM-A4F" eventType="touchUpInside" id="yV8-5v-CKl"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -114,7 +117,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="leagueName" destination="cgG-tQ-kUR" id="BXJ-i8-6nt"/>
-                                            <outlet property="playButton" destination="hbt-SN-0cr" id="2qF-a5-HUA"/>
+                                            <outlet property="playButton" destination="hbt-SN-0cr" id="Qpl-sq-tdQ"/>
                                             <outlet property="teamImage" destination="aVG-Cn-FOZ" id="IbC-JL-cp1"/>
                                         </connections>
                                     </tableViewCell>

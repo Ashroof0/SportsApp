@@ -9,10 +9,11 @@ import XCTest
 @testable import SportsApp
 import SwiftUI
 
-final class NWServiceTests: XCTestCase {
+final class NetworkTesting: XCTestCase {
 
     var helper : NetworkManager!
-    
+    var viewModel = LeagueDetailsViewModel()
+    var leagueModel = LeagueViewModel()
     override func setUpWithError() throws {
         helper = NetworkManager()
     }
@@ -70,5 +71,12 @@ final class NWServiceTests: XCTestCase {
         })
         wait(for: [expectedObject],timeout: 10)
     }
+ 
+  
 
+    
 }
+
+
+
+

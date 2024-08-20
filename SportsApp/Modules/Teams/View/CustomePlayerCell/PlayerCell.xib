@@ -62,7 +62,7 @@
                 <outlet property="playerNumberLabel" destination="01G-KO-OPY" id="H9z-8B-e7J"/>
                 <outlet property="view" destination="SyF-Xs-avX" id="sUN-0F-E3T"/>
             </connections>
-            <point key="canvasLocation" x="221.37404580152671" y="22.535211267605636"/>
+            <point key="canvasLocation" x="220.28985507246378" y="22.098214285714285"/>
         </tableViewCell>
     </objects>
     <resources>
